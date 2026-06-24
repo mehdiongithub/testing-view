@@ -16,7 +16,7 @@ class GovernmentPost extends Model
         'country_id',
         'title',
         'department',
-        'exam_type',
+        'exam_type_id',
         'is_active',
     ];
 
@@ -40,6 +40,14 @@ class GovernmentPost extends Model
     public function exams()
     {
         return $this->hasMany(Exam::class, 'gov_post_id');
+    }
+
+    public function examType()
+    {
+        return $this->belongsTo(
+            ExamType::class,
+            'exam_type_id'
+        );
     }
 
 }

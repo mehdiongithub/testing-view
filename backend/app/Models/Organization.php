@@ -86,4 +86,9 @@ class Organization extends Model
         return $this->hasMany(Report::class, 'org_id');
     }
 
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
 }

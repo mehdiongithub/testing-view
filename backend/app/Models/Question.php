@@ -13,6 +13,7 @@ class Question extends Model
     protected $fillable = [
         'exam_id',
         'subject_id',
+        'organization_id',
         'question_text',
         'q_type',
         'marks',
@@ -51,6 +52,11 @@ class Question extends Model
     public function attemptAnswers()
     {
         return $this->hasMany(AttemptAnswer::class);
+    }
+
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
     }
 
 }
